@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: sentence
+  application:
+    name: spring-sentence-l4
+  cloud:
+    config:
+      uri: http://localhost:8001
+      
