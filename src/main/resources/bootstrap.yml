@@ -1,3 +1,4 @@
+## Configuration for spring config
 spring:
   profiles:
     active: sentence

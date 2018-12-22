@@ -1,3 +1,4 @@
+## Configuration for single eureka server, and no spring config
 #eureka:
 #  client:
 #    serviceUrl:
