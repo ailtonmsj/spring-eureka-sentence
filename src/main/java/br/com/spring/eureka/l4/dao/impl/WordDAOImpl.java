@@ -5,10 +5,9 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.web.client.RestTemplate;
 
-import br.com.spring.eureka.l4.dao.WordDAO;
 import br.com.spring.eureka.l4.domain.Word;
 
-public abstract class WordDAOImpl implements WordDAO {
+public abstract class WordDAOImpl {
 
 	@Autowired
 	LoadBalancerClient loadBalancer;

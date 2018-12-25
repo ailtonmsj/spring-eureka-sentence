@@ -3,17 +3,26 @@ package br.com.spring.eureka.l4.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.spring.eureka.l4.dao.WordDAO;
+import br.com.spring.eureka.l4.client.AdjectiveClient;
+import br.com.spring.eureka.l4.client.ArticleClient;
+import br.com.spring.eureka.l4.client.NounClient;
+import br.com.spring.eureka.l4.client.SubjectClient;
+import br.com.spring.eureka.l4.client.VerbClient;
 import br.com.spring.eureka.l4.service.SentenceService;
 
 @Service
 public class SentenceServiceImpl implements SentenceService {
 
-	private WordDAO verbService;
-	private WordDAO subjectService;
-	private WordDAO articleService;
-	private WordDAO adjectiveService;
-	private WordDAO nounService;
+	@Autowired
+	private VerbClient verbClient;
+	@Autowired
+	private SubjectClient subjectClient;
+	@Autowired
+	private ArticleClient articleClient;
+	@Autowired
+	private AdjectiveClient adjectiveClient;
+	@Autowired
+	private NounClient nounClient;
 	
 
 	/**
@@ -23,37 +32,11 @@ public class SentenceServiceImpl implements SentenceService {
 		String sentence = "There was a problem assembling the sentence!";
 		sentence =  
 			String.format("%s %s %s %s %s.",
-				subjectService.getWord().getString(),
-				verbService.getWord().getString(),
-				articleService.getWord().getString(),
-				adjectiveService.getWord().getString(),
-				nounService.getWord().getString() );
+				subjectClient.getWord().getString(),
+				verbClient.getWord().getString(),
+				articleClient.getWord().getString(),
+				adjectiveClient.getWord().getString(),
+				nounClient.getWord().getString() );
 		return sentence;
-	}
-
-
-	@Autowired
-	public void setVerbService(WordDAO verbService) {
-		this.verbService = verbService;
-	}
-
-	@Autowired
-	public void setSubjectService(WordDAO subjectService) {
-		this.subjectService = subjectService;
-	}
-
-	@Autowired
-	public void setArticleService(WordDAO articleService) {
-		this.articleService = articleService;
-	}
-
-	@Autowired
-	public void setAdjectiveService(WordDAO adjectiveService) {
-		this.adjectiveService = adjectiveService;
-	}
-
-	@Autowired
-	public void setNounService(WordDAO nounService) {
-		this.nounService = nounService;
 	}
 }

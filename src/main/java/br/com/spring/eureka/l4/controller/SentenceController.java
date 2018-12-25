@@ -23,12 +23,13 @@ public class SentenceController {
 	
 	@GetMapping("/sentence")
 	public @ResponseBody String getSentences() {
-	  return 
-		"<h3>Some Sentences</h3><br/>" +	  
+	  String sentence = 
 		sentenceService.buildSentence() + "<br/><br/>" +
 		sentenceService.buildSentence() + "<br/><br/>" +
 		sentenceService.buildSentence() + "<br/><br/>" +
 		sentenceService.buildSentence() + "<br/><br/>" +
 		sentenceService.buildSentence() + "<br/><br/>";
+	  
+	  return sentence;
 	}
 }
